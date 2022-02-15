@@ -12,7 +12,7 @@ WebComponent 原生开发
 
 原生开发的时候 html 代码都以字符串的形式存在，不方便。 可以安装插件 [innerHTML Syntax Highlighting](https://marketplace.visualstudio.com/items?itemName=nicolasparada.innerhtml)
 
-原生组件的开发可以参考这个： https://github.com/mdn/web-components-examples
+原生组件的开发可以参考这个： [MDN WebComponent examples](https://github.com/mdn/web-components-examples)
 
 ## 需要使用 shadow dom
 shadow dom 的用途是隔离不同组件之间的样式，下面的代码没有用到 shadow dom，是不符合 WebComponent 实用要求的。
@@ -80,9 +80,33 @@ if (!window.customElements.get("me-button")) {
 }
 
 ```
+![](images/2022-02-15-22-43-34.png)
+
+## :defined 伪类
+
+表示任何已定义的元素。这包括任何浏览器内置的标准元素以及已成功定义的自定义元素
 
 
 
+## 属性的获取
+
+在原生的 WebComponent 中，我们使用 getter 来接收并处理属性
+
+**注意：**
+1. 和Vue中的 computed 类似，在组件内部没有对size属性发生引用的时候，其内部的代码并不会执行。
+2. 并且这个属性并不是响应式的，在外部修改 dom 的 attribute的时候，getter 函数并不会再次执行，视图也不会改变。
+
+```javascript
+sizeRules = ["mini", "small", "medium"];
+
+get size() {
+    const size = this.getAttribute("size");
+    if (!this.sizeRules.includes(size) && size.length) {
+        throw new Error(`${size} is not in ${this.sizeRules}`);
+    }
+    return size || "medium";
+}
+```
 
 
 

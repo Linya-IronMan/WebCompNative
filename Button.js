@@ -1,9 +1,9 @@
 export default class MeButton extends HTMLElement {
-  constructor() {
-    super();
+    constructor() {
+        super();
 
-    const template = document.createElement("template");
-    template.innerHTML = `
+        const template = document.createElement('template');
+        template.innerHTML = `
       <style>
         .me-button-size--medium {
           
@@ -18,16 +18,27 @@ export default class MeButton extends HTMLElement {
           color: red;
         }
       </style>
-      <button class="me-button">click</button>
+      <button class="me-button">click ${this.size}</button>
     `;
-    const shadowRoot = this.attachShadow({
-      mode: "closed",
-    });
+        const shadowRoot = this.attachShadow({
+            mode: 'closed',
+        });
 
-    shadowRoot.appendChild(template.content);
-  }
+        shadowRoot.appendChild(template.content);
+    }
+
+    sizeRules = ['mini', 'small', 'medium'];
+
+    get size() {
+        const size = this.getAttribute('size');
+        if (!this.sizeRules.includes(size) && size.length) {
+            throw new Error(`${size} is not in ${this.sizeRules}`);
+        }
+        console.log(size, 'attribute size');
+        return size || 'medium';
+    }
 }
 
-if (!window.customElements.get("me-button")) {
-  window.customElements.define("me-button", MeButton);
+if (!window.customElements.get('me-button')) {
+    window.customElements.define('me-button', MeButton);
 }
