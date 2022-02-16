@@ -3,9 +3,12 @@ WebComponent 原生开发
 
 参照ElementUI的button组件写一个 WebComponent
 
+
 | 参数 | 说明 | 类型   | 可选值            | 默认值 |
 | ---- | ---- | ------ | ----------------- | ------ |
 | size | 尺寸 | string | medium/small/mini | ---    |
+| type | 类型 | string | primary/success/warning/danger/info/text | --- |
+
 
 
 # WebComponent 开发注意
@@ -115,6 +118,10 @@ get size() {
 
 直接将类名写在 `constructor` 中写在 `template`  上即可， `constructor` 函数执行时是可以访问 `getter` 的。
 
+
+## slot 添加
+
+使用的时候和 vue 中的 slot 差不多。
 
 
 

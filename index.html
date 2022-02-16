@@ -1,24 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
 
-    <body>
-        <me-button id="meButton" size="mini"></me-button>
+  <body>
+    <div class="button-container">
+      <p><code>size</code></p>
+      <me-button size="medium"></me-button>
+      <me-button size="small"></me-button>
+      <me-button size="mini"></me-button>
+    </div>
 
-        <button id="changeBtn">sdfsdfs</button>
-        <script type="module">
-            import MeButton from './Button.js';
-            const changeBtn = document.querySelector('#changeBtn');
-            changeBtn.onclick = function () {
-                console.log('click button');
-                const meButton = document.querySelector('#meButton');
-                meButton.setAttribute('size', 'small');
-            };
-        </script>
-    </body>
+    <div class="button-container">
+      <p><code>type</code></p>
+      <me-button size="mini" type="primary"></me-button>
+      <me-button size="mini" type="success"></me-button>
+      <me-button size="mini" type="warning"></me-button>
+      <me-button size="mini" type="danger"></me-button>
+      <me-button size="mini" type="info"></me-button>
+      <me-button size="mini" type="text"></me-button>
+    </div>
+
+    <script type="module">
+      import MeButton from "./Button.js";
+      const changeBtn = document.querySelector("#changeBtn");
+      changeBtn.onclick = function () {
+        console.log("click button");
+        const meButton = document.querySelector("#meButton");
+        meButton.setAttribute("size", "small");
+      };
+    </script>
+  </body>
 </html>
