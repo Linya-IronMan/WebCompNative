@@ -108,6 +108,16 @@ get size() {
 }
 ```
 
+## 根据传递的属性初始化元素
+
+比如，要根据 `me-button` 元素上的 `size` 属性，为组件添加不同的类名。
+注意：这个类名不会添加在组件外层，而是添加在 `template` 模板中，位于 `shadow dom` 里面。
+
+直接将类名写在 `constructor` 中写在 `template`  上即可， `constructor` 函数执行时是可以访问 `getter` 的。
+
+
+
+
 
 
 
