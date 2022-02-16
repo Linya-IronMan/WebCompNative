@@ -4,10 +4,10 @@ WebComponent 原生开发
 参照ElementUI的button组件写一个 WebComponent
 
 
-| 参数 | 说明 | 类型   | 可选值            | 默认值 |
-| ---- | ---- | ------ | ----------------- | ------ |
-| size | 尺寸 | string | medium/small/mini | ---    |
-| type | 类型 | string | primary/success/warning/danger/info/text | --- |
+| 参数 | 说明 | 类型   | 可选值                                   | 默认值 |
+| ---- | ---- | ------ | ---------------------------------------- | ------ |
+| size | 尺寸 | string | medium/small/mini                        | ---    |
+| type | 类型 | string | primary/success/warning/danger/info/text | ---    |
 
 
 
@@ -122,6 +122,14 @@ get size() {
 ## slot 添加
 
 使用的时候和 vue 中的 slot 差不多。
+
+```javascript
+<button class="me-button me-button-size--${this.size} me-button-type--${this.type}">
+    <slot></slot>
+</button>
+```
+需要注意的是，默认插槽就不要加 `name` 属性了，否则无法展示
+
 
 
 

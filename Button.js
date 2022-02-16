@@ -129,7 +129,9 @@ export default class MeButton extends HTMLElement {
             background-color: #ecf5ff;
         }
       </style>
-      <button class="me-button me-button-size--${this.size} me-button-type--${this.type}">click ${this.size}</button>
+      <button class="me-button me-button-size--${this.size} me-button-type--${this.type}">
+          <slot></slot>
+      </button>
     `;
     const shadowRoot = this.attachShadow({
       mode: "closed",
@@ -155,12 +157,6 @@ export default class MeButton extends HTMLElement {
       throw new Error(`${type} is not in ${this.typeRules}`);
     }
     return type || "default";
-  }
-
-  attributeChangedCallback(attr, oldVal, newVal) {
-    // console.log(this.classList, "=== classList ===", this);
-    // this.classList.add(`me-button-size--${this.size}`);
-    console.log("attributeChangedCallback", attr, oldVal, newVal);
   }
 }
 
